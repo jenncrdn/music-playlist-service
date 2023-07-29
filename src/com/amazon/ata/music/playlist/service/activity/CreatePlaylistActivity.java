@@ -1,14 +1,24 @@
 package com.amazon.ata.music.playlist.service.activity;
 
+import com.amazon.ata.music.playlist.service.converters.ModelConverter;
+import com.amazon.ata.music.playlist.service.dynamodb.models.AlbumTrack;
+import com.amazon.ata.music.playlist.service.dynamodb.models.Playlist;
+import com.amazon.ata.music.playlist.service.exceptions.InvalidAttributeValueException;
 import com.amazon.ata.music.playlist.service.models.requests.CreatePlaylistRequest;
 import com.amazon.ata.music.playlist.service.models.results.CreatePlaylistResult;
 import com.amazon.ata.music.playlist.service.models.PlaylistModel;
 import com.amazon.ata.music.playlist.service.dynamodb.PlaylistDao;
 
+import com.amazon.ata.music.playlist.service.util.MusicPlaylistServiceUtils;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 /**
  * Implementation of the CreatePlaylistActivity for the MusicPlaylistService's CreatePlaylist API.
@@ -44,6 +54,29 @@ public class CreatePlaylistActivity implements RequestHandler<CreatePlaylistRequ
     @Override
     public CreatePlaylistResult handleRequest(final CreatePlaylistRequest createPlaylistRequest, Context context) {
         log.info("Received CreatePlaylistRequest {}", createPlaylistRequest);
+        String customerId = createPlaylistRequest.getCustomerId();
+        String playlistName = createPlaylistRequest.getName();
+        String playlistId = MusicPlaylistServiceUtils.generatePlaylistId();
+        List<String> listOfTags = createPlaylistRequest.getTags();
+        if (listOfTags.isEmpty()) {
+            listOfTags = null;
+        }
+        Set<String> tags = new HashSet<>(listOfTags);
+
+        if (!MusicPlaylistServiceUtils.isValidString(customerId) || !MusicPlaylistServiceUtils.isValidString(playlistName)) {
+            throw new InvalidAttributeValueException("An invalid character was used");
+        }
+
+        List<AlbumTrack> emptySonglist = new ArrayList<>();
+
+        Playlist playlist = new Playlist();
+        playlist.setId(playlistId);
+        playlist.setName(playlistName);
+        playlist.setCustomerId(customerId);
+        playlist.setTags(tags);
+        playlist.setSongList(emptySonglist);
+
+        playlistDao.savePlaylist(playlist);
 
         return CreatePlaylistResult.builder()
                 .withPlaylist(new PlaylistModel())
