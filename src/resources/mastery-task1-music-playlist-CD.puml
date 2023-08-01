@@ -51,6 +51,14 @@ class InvalidAttributeValueException {
 - serialVersionUID : long
 }
 
+class InvalidAttributeChangeException {
+- serialVersionUID : long
+}
+
+class InvalidAttributeException {
+- serialVersionUID : long
+}
+
 class Playlist {
 - @DynamoDBHashKey id : String
 - name : String
@@ -83,5 +91,7 @@ AddSongToPlaylistActivity o-- PlaylistDao
 GetPlaylistActivity o-- PlaylistDao
 GetPlaylistSongsActivity o-- PlaylistDao
 UpdatePlaylistActivity o-- PlaylistDao
+InvalidAttributeException <|-- InvalidAttributeChangeException
+InvalidAttributeException <|-- InvalidAttributeValueException
 
 @enduml
