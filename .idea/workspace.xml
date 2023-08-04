@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="99fa0b23-4a4b-476a-a2f6-54627c5ffbd7" name="Changes" comment="" />
+    <list default="true" id="99fa0b23-4a4b-476a-a2f6-54627c5ffbd7" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dependency/DaoModule.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dependency/ServiceComponent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/AddSongToPlaylistActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/AddSongToPlaylistActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/CreatePlaylistActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/CreatePlaylistActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/GetPlaylistActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/GetPlaylistActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/GetPlaylistSongsActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/GetPlaylistSongsActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/UpdatePlaylistActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/activity/UpdatePlaylistActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dynamodb/AlbumTrackDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dynamodb/AlbumTrackDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dynamodb/PlaylistDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/amazon/ata/music/playlist/service/dynamodb/PlaylistDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/mastery-task-3-dagger-design-template.md" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/mastery-task-3-dagger-design-template.md" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,7 +35,17 @@
         <task path="$PROJECT_DIR$">
           <activation />
         </task>
-        <projects_view />
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="UnitProject" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
       </state>
     </system>
   </component>
@@ -29,6 +53,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -46,18 +71,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "last_opened_file_path": "/Users/jennifercardona/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-jenncrdn",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "preferences.pluginManager"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/jennifercardona/BloomTech/Unit4/bd-working-with-databases-music-playlist-service-jenncrdn&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="Gradle.bd-working-with-databases-music-playlist-service-jenncrdn [buildZip]">
-    <configuration name="CreatePlaylistActivityTest.handleRequest_invalidCharacterUsed_throwsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="CreatePlaylistActivityTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -70,7 +95,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.amazon.ata.music.playlist.service.activity.CreatePlaylistActivityTest.handleRequest_invalidCharacterUsed_throwsException&quot;" />
+            <option value="&quot;com.amazon.ata.music.playlist.service.activity.CreatePlaylistActivityTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -81,7 +106,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="PlaylistDaoTest.getPlaylist_nullPlaylist_throwsException" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GetPlaylistActivityTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -94,7 +119,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.amazon.ata.music.playlist.service.dynamodb.PlaylistDaoTest.getPlaylist_nullPlaylist_throwsException&quot;" />
+            <option value="&quot;com.amazon.ata.music.playlist.service.activity.GetPlaylistActivityTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -105,7 +130,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="PlaylistDaoTest.getPlaylist_validPlaylist_returnsPlaylist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="GetPlaylistActivityTest.handleRequest_savedPlaylistFound_returnsPlaylistModelInResult" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -118,7 +143,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.amazon.ata.music.playlist.service.dynamodb.PlaylistDaoTest.getPlaylist_validPlaylist_returnsPlaylist&quot;" />
+            <option value="&quot;com.amazon.ata.music.playlist.service.activity.GetPlaylistActivityTest.handleRequest_savedPlaylistFound_returnsPlaylistModelInResult&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -129,7 +154,7 @@
       <ForceTestExec>true</ForceTestExec>
       <method v="2" />
     </configuration>
-    <configuration name="PlaylistDaoTest.savePlaylist_validPlaylist_savesPlaylist" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="UpdatePlaylistActivityTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +167,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;com.amazon.ata.music.playlist.service.dynamodb.PlaylistDaoTest.savePlaylist_validPlaylist_savesPlaylist&quot;" />
+            <option value="&quot;com.amazon.ata.music.playlist.service.activity.UpdatePlaylistActivityTest&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -178,10 +203,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Gradle.bd-working-with-databases-music-playlist-service-jenncrdn [buildZip]" />
-        <item itemvalue="Gradle.PlaylistDaoTest.savePlaylist_validPlaylist_savesPlaylist" />
-        <item itemvalue="Gradle.PlaylistDaoTest.getPlaylist_validPlaylist_returnsPlaylist" />
-        <item itemvalue="Gradle.PlaylistDaoTest.getPlaylist_nullPlaylist_throwsException" />
-        <item itemvalue="Gradle.CreatePlaylistActivityTest.handleRequest_invalidCharacterUsed_throwsException" />
+        <item itemvalue="Gradle.UpdatePlaylistActivityTest" />
+        <item itemvalue="Gradle.CreatePlaylistActivityTest" />
+        <item itemvalue="Gradle.GetPlaylistActivityTest" />
+        <item itemvalue="Gradle.GetPlaylistActivityTest.handleRequest_savedPlaylistFound_returnsPlaylistModelInResult" />
       </list>
     </recent_temporary>
   </component>
