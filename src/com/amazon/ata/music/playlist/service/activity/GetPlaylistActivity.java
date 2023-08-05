@@ -7,6 +7,8 @@ import com.amazon.ata.music.playlist.service.converters.ModelConverter;
 import com.amazon.ata.music.playlist.service.dynamodb.PlaylistDao;
 import com.amazon.ata.music.playlist.service.dynamodb.models.Playlist;
 
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
@@ -31,6 +33,10 @@ public class GetPlaylistActivity implements RequestHandler<GetPlaylistRequest, G
     @Inject
     public GetPlaylistActivity(PlaylistDao playlistDao) {
         this.playlistDao = playlistDao;
+    }
+
+    public GetPlaylistActivity() {
+        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
     }
 
     /**

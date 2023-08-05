@@ -11,6 +11,8 @@ import com.amazon.ata.music.playlist.service.models.results.UpdatePlaylistResult
 import com.amazon.ata.music.playlist.service.dynamodb.PlaylistDao;
 
 import com.amazon.ata.music.playlist.service.util.MusicPlaylistServiceUtils;
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
@@ -35,6 +37,10 @@ public class UpdatePlaylistActivity implements RequestHandler<UpdatePlaylistRequ
     @Inject
     public UpdatePlaylistActivity(PlaylistDao playlistDao) {
         this.playlistDao = playlistDao;
+    }
+
+    public UpdatePlaylistActivity() {
+        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
     }
 
     /**

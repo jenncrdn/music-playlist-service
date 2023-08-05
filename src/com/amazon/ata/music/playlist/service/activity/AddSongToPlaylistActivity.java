@@ -1,18 +1,25 @@
 package com.amazon.ata.music.playlist.service.activity;
 
+import com.amazon.ata.music.playlist.service.converters.ModelConverter;
+import com.amazon.ata.music.playlist.service.dynamodb.models.AlbumTrack;
+import com.amazon.ata.music.playlist.service.dynamodb.models.Playlist;
 import com.amazon.ata.music.playlist.service.models.requests.AddSongToPlaylistRequest;
 import com.amazon.ata.music.playlist.service.models.results.AddSongToPlaylistResult;
 import com.amazon.ata.music.playlist.service.models.SongModel;
 import com.amazon.ata.music.playlist.service.dynamodb.AlbumTrackDao;
 import com.amazon.ata.music.playlist.service.dynamodb.PlaylistDao;
 
+import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClient;
+import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestHandler;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import javax.inject.Inject;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 /**
  * Implementation of the AddSongToPlaylistActivity for the MusicPlaylistService's AddSongToPlaylist API.
@@ -36,6 +43,11 @@ public class  AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayl
         this.albumTrackDao = albumTrackDao;
     }
 
+    public AddSongToPlaylistActivity() {
+        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+        albumTrackDao = new AlbumTrackDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+    }
+
     /**
      * This method handles the incoming request by adding an additional song
      * to a playlist and persisting the updated playlist.
@@ -54,9 +66,22 @@ public class  AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayl
     @Override
     public AddSongToPlaylistResult handleRequest(final AddSongToPlaylistRequest addSongToPlaylistRequest, Context context) {
         log.info("Received AddSongToPlaylistRequest {} ", addSongToPlaylistRequest);
+        String requestedAsin = addSongToPlaylistRequest.getAsin();
+        Integer requestedTrackNumber = addSongToPlaylistRequest.getTrackNumber();
+        AlbumTrack albumTrack = albumTrackDao.getAlbumTrack(requestedAsin, requestedTrackNumber);
+        Playlist playlist = playlistDao.getPlaylist(addSongToPlaylistRequest.getId());
+        List<AlbumTrack> songList = playlist.getSongList();
+        songList.add(albumTrack);
+        playlistDao.savePlaylist(playlist);
+        List<SongModel> songModelList = new ArrayList<>();
+
+        for (AlbumTrack s : songList) {
+            SongModel songModel = new ModelConverter().toSongModel(s);
+            songModelList.add(songModel);
+        }
 
         return AddSongToPlaylistResult.builder()
-                .withSongList(Collections.singletonList(new SongModel()))
+                .withSongList(songModelList)
                 .build();
     }
 }
