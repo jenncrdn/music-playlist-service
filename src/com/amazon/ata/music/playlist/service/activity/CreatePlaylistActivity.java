@@ -44,9 +44,9 @@ public class CreatePlaylistActivity implements RequestHandler<CreatePlaylistRequ
         this.playlistDao = playlistDao;
     }
 
-    public CreatePlaylistActivity() {
-        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
-    }
+//    public CreatePlaylistActivity() {
+//        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+//    }
 
     /**
      * This method handles the incoming request by persisting a new playlist

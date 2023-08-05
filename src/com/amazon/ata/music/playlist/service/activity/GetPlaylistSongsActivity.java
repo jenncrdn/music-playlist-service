@@ -39,9 +39,9 @@ public class GetPlaylistSongsActivity implements RequestHandler<GetPlaylistSongs
         this.playlistDao = playlistDao;
     }
 
-    public GetPlaylistSongsActivity() {
-        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
-    }
+//    public GetPlaylistSongsActivity() {
+//        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+//    }
 
     /**
      * This method handles the incoming request by retrieving the playlist from the database.

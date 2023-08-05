@@ -39,9 +39,9 @@ public class UpdatePlaylistActivity implements RequestHandler<UpdatePlaylistRequ
         this.playlistDao = playlistDao;
     }
 
-    public UpdatePlaylistActivity() {
-        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
-    }
+//    public UpdatePlaylistActivity() {
+//        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+//    }
 
     /**
      * This method handles the incoming request by retrieving the playlist, updating it,

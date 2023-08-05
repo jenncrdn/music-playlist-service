@@ -43,10 +43,10 @@ public class  AddSongToPlaylistActivity implements RequestHandler<AddSongToPlayl
         this.albumTrackDao = albumTrackDao;
     }
 
-    public AddSongToPlaylistActivity() {
-        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
-        albumTrackDao = new AlbumTrackDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
-    }
+//    public AddSongToPlaylistActivity() {
+//        playlistDao = new PlaylistDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+//        albumTrackDao = new AlbumTrackDao(new DynamoDBMapper(new AmazonDynamoDBClient()));
+//    }
 
     /**
      * This method handles the incoming request by adding an additional song
