@@ -3,6 +3,7 @@ package com.amazon.ata.music.playlist.service.activity;
 import com.amazon.ata.music.playlist.service.converters.ModelConverter;
 import com.amazon.ata.music.playlist.service.dynamodb.models.AlbumTrack;
 import com.amazon.ata.music.playlist.service.dynamodb.models.Playlist;
+import com.amazon.ata.music.playlist.service.models.SongOrder;
 import com.amazon.ata.music.playlist.service.models.requests.GetPlaylistSongsRequest;
 import com.amazon.ata.music.playlist.service.models.results.GetPlaylistSongsResult;
 import com.amazon.ata.music.playlist.service.models.SongModel;
@@ -61,6 +62,18 @@ public class GetPlaylistSongsActivity implements RequestHandler<GetPlaylistSongs
 
         List<AlbumTrack> songList = playlist.getSongList();
         List<SongModel> songModelList = new ArrayList<>();
+
+        if (getPlaylistSongsRequest.getOrder() == null) {
+            getPlaylistSongsRequest.setOrder(SongOrder.DEFAULT);
+        }
+
+        if (getPlaylistSongsRequest.getOrder().equals(SongOrder.SHUFFLED)) {
+            Collections.shuffle(songList);
+        }
+
+        if (getPlaylistSongsRequest.getOrder().equals(SongOrder.REVERSED)) {
+            Collections.reverse(songList);
+        }
 
         for (AlbumTrack s : songList) {
             SongModel songModel = new ModelConverter().toSongModel(s);
